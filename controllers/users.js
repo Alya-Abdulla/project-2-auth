@@ -42,7 +42,7 @@ router.post('/login', async (req, res)=>{
         const encryptedUserId = cryptojs.AES.encrypt(user.id.toString(), process.env.SECRET)
         const encryptedUserIdString = encryptedUserId.toString()
         res.cookie('userId', encryptedUserIdString)
-        res.redirect('/')
+        res.redirect('/posts/read')
     }
 })
 
@@ -55,5 +55,8 @@ router.get('/logout', (req, res)=>{
 router.get('/profile', (req, res)=>{
     res.render('users/profile.ejs')
 })
+
+
+
 
 module.exports = router
