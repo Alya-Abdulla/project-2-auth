@@ -15,6 +15,9 @@ module.exports = {
       message: {
         type: Sequelize.STRING
       },
+      userId: {
+        type: Sequelize.INTEGER
+      },
       creater: {
         type: Sequelize.STRING
       },

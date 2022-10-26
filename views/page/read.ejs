@@ -12,13 +12,21 @@
    
     <div class="container">
         <h1>home </h1>
-        <a href="/posts/write">New Post</a>
-    
-        <form action="/posts/new" method="POST">
-            <input type="text">
-        </form>
+        <a href="/posts/form">New Post</a>
+       
+
+    </div>
+<% posts.forEach(p => { %>
+<p><%= p.title%></p>
+<p><%= p.message %></p>
+
+
+
+<% }) %>
+    <div>
 
     </div>
 
+    
 </body>
 </html>
