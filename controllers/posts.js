@@ -11,7 +11,10 @@ router.get('/read', async (req, res)=>{
 
 // await db.postmessage.findOrCreate({ where: { name: req.body.name})
 
-    const posts = await db.post.findAll()
+    const posts = await db.post.findAll({
+        include: [db.comments]
+    })
+    
 
     res.render('page/read.ejs', {posts})
 })
@@ -22,13 +25,13 @@ router.get('/form',(req, res)=>{
 })
 
 
-router.post("/form", async(req,res)=>{
+router.post("/form", async (req,res)=>{
 const {title, Description} = req.body
-
+console.log(req.body)
 const user = await db.user.findByPk(res.locals.user.id)
     if (user) {
         await db.post.findOrCreate({ 
-            where:  {
+            where: {
                 // img: req.body.img
                  title: req.body.title,
                  message: req.body.message,
@@ -48,17 +51,25 @@ const user = await db.user.findByPk(res.locals.user.id)
 
 router.get('/form',(req, res)=>{
 // await db.postmessage.create({name: req.body.name})
-
-res.render('page/form.ejs')
-  })
-
-router.delete('/:D',(req, res)=>{
-
-// await db.postmessage.destroy({ name: req.body.name })
-
-
-    // res.render('page/delete.ejs')
+    res.render('page/form.ejs')
 })
+
+
+
+
+// router.delete('/:postid',async(req, res)=>{
+
+//  db.post.destroy({ 
+//     where: {id:req.params.postid}
+//  })
+//  .then(response =>{
+//      res.redirect('page/read.ejs')
+//  })
+
+
+// })
+
+
 
 
 module.exports = router

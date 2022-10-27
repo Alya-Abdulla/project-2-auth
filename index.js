@@ -6,11 +6,14 @@ const db = require('./models')
 const cryptoJS = require('crypto-js')
 require('dotenv').config()
 const bodyParser = require('body-parser')
+const { route } = require('./controllers/posts')
+const methodOverride = require('method-override')
 // MIDDLEWARE
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended:false}))
+app.use(methodOverride('_method'))
 app.use(bodyParser.json())
 app.use(express.urlencoded({extended: false}))
 
@@ -28,10 +31,16 @@ app.use(async (req, res, next)=>{
 // CONTROLLERS
 app.use('/users', require('./controllers/users'))
 app.use('/posts', require('./controllers/posts'))
+app.use('/comments', require('./controllers/comments'))
+
 // ROUTES
 app.get('/', (req, res)=>{
     res.render('home')
 })
+
+//static image folder
+// app.use('/Images', express.static('./Images'))
+// app.use('/upload', route)
 
 app.listen(8000, ()=>{
     console.log('Project 2 Express Authentication')
