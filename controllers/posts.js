@@ -52,12 +52,13 @@ router.get('/form',(req, res)=>{
 res.render('page/form.ejs')
   })
 
-router.delete('/delete',(req, res)=>{
+router.delete('/:D',(req, res)=>{
 
 // await db.postmessage.destroy({ name: req.body.name })
 
 
-    res.render('page/delete.ejs')
+    // res.render('page/delete.ejs')
 })
+
 
 module.exports = router
