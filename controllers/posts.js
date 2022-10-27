@@ -57,18 +57,16 @@ router.get('/form',(req, res)=>{
 
 
 
-// router.delete('/:postid',async(req, res)=>{
+router.delete('/:pokeId', async (req,res) => {
 
-//  db.post.destroy({ 
-//     where: {id:req.params.postid}
-//  })
-//  .then(response =>{
-//      res.redirect('page/read.ejs')
-//  })
-
-
-// })
-
+    //We need to delete pokemon with id pokeId
+    //look at previous code/labs/hw/lessons
+    //Search on google ---> delete item/data using sequelize
+    await db.post.destroy({
+        where: { id: req.params.pokeId }
+    })
+    res.redirect('/posts/read')
+})
 
 
 

@@ -26,17 +26,19 @@
               <div class="column">
                 <div class="card">
 
-             <!-- <form method="POST" action="/post/<%= p.id %>?_method=DELETE">
-        <button type="submit">delete</button>
-    </form> -->
-
   
-    
     <p><%= p.title%></p>
     <p><%= p.message %></p>
+
+
+    <form method="POST" action="/posts/<%= p.id %>?_method=DELETE">
+      <button type="submit">delete</button>
+  </form>
+
     <form method="post" action="/read">
       
     </form> 
+
       
       <form action="/comments/<%= p.id %>" method="POST">
   
