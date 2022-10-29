@@ -54,7 +54,7 @@ router.get('/form',(req, res)=>{
     res.render('page/form.ejs')
 })
 
-
+//delete
 
 
 router.delete('/:pokeId', async (req,res) => {
