@@ -10,105 +10,93 @@
 </head>
 <body>
    
-    <div class="container">
-        <h1>home </h1>
+    <div class="newpost">
+    
         <a href="/posts/form">New Post</a>
        
 
     </div>
+
+    <div class="blocks">
+
+      <% posts.forEach(p => { %>
     
-<div class="block">
-    <% posts.forEach(p => { %>
-      
-     
-
-            <div class="row">
-              <div class="column">
-                <div class="card">
-
-  
-    <p><%= p.title%></p>
-    <p><%= p.message %></p>
-
-
-    <form method="POST" action="/posts/<%= p.id %>?_method=DELETE">
-      <button type="submit">delete</button>
-  </form>
-
-    <form method="post" action="/read">
-      
-    </form> 
-
-      
-      <form action="/comments/<%= p.id %>" method="POST">
-  
-        <input type="text" name="Des">
-        <button type="submit">Add Comment</button>
         
-        <% p.comments.forEach(c => { %>
-          <p><%= c.comment %></p>
-        <% }) %>
+        <div class="card" style="width: 25rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%= p.title%></h5>
+            <p class="card-text"><%= p.message %></p>
           </div>
-        </div>
-      </div>
-      <% }) %>  
-    </div>
-
           
+  
+  
+          <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+              <% p.comments.forEach(c => { %>
+                <p><%= c.comment %></p>
+              <% }) %>
+              <form action="/comments/<%= p.id %>" method="POST" class="commmentform">
+              <input type="text" name="Des" ><button type="submit">Add Comment</button>
+              </form></li>
+            
               
-         
-          
-
+            </ul>
+            <form method="POST" action="/posts/<%= p.id %>?_method=DELETE">
+              <button type="submit">delete</button>
+            </form>
+        </div>
+           <br>
+          <% }) %> 
+    </div>
+    
 
 
 </body>
 <style>
  
-
- * {
-  box-sizing: border-box;
+.newpost{
+  padding-left: 40px;
+    font-size: 30px;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-
+ .card {
+  width: 18rem;
+   
 }
-
-/* .block{
-  display: inline-block;
-} */
-/* Float four columns side by side */
-.column {
-  float: left;
-  width: 25%;
-  padding: 0 10px;
-}
-
-/* Remove extra left and right margins, due to padding */
-.row {margin: 0 -5px;}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive columns */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-
-/* Style the counter cards */
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
+.blocks > .card {
+  width: 50px;
   background-color: #f1f1f1;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+  height: 600px;
+  
 }
-</style>
+.blocks{
+  border:2px solid black;
+  display: flex;
+  padding: 20px;
+  margin: 50px;
+  margin-top: 0px;
+  height: 1000px;
+  
+}
+input{
+  width: 300px;
+  height: 25px;
+  font-size: 20px;
+}
+button{
+  font-size:13px ;
+}
+.display{
+  font-size: 15px;
+}
+li{
+  padding: 1px;
+}
+
+</style
 </html>
