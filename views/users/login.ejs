@@ -1,9 +1,52 @@
-<form action="/users/login" method="POST">
-    <label for="email">Email:</label>
-    <input type="email" name="email" id="email">
 
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password">
+<body>
+    
+    <form action="/users/login" method="POST" class="login">
+        <label for="email">Email : &nbsp &nbsp</label>
+        <input type="email" name="email" id="email">
+    <br><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
+    <br>
+    &nbsp  &nbsp &nbsp<button type="submit">Login</button>
+    </form>
+</body>
 
-    <button type="submit">Login</button>
-</form>
+
+<style>
+
+    .login{
+    text-align: CENTER;
+    PADDING-TOP: 5%;
+
+        
+    }
+    
+
+ input[type=email], input[type=password] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  margin-left: 45px;
+  
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+
+</style>
