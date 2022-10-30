@@ -32,7 +32,7 @@ const user = await db.user.findByPk(res.locals.user.id)
     if (user) {
         await db.post.findOrCreate({ 
             where: {
-                // img: req.body.img
+                 img: req.body.img,
                  title: req.body.title,
                  message: req.body.message,
                  creater: user.email
@@ -57,13 +57,13 @@ router.get('/form',(req, res)=>{
 //delete
 
 
-router.delete('/:pokeId', async (req,res) => {
+router.delete('/:poId', async (req,res) => {
 
-    //We need to delete pokemon with id pokeId
-    //look at previous code/labs/hw/lessons
+    //We need to delete post with id pokeId
+    
     //Search on google ---> delete item/data using sequelize
     await db.post.destroy({
-        where: { id: req.params.pokeId }
+        where: { id: req.params.poId }
     })
     res.redirect('/posts/read')
 })

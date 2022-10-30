@@ -23,19 +23,19 @@
     
         
         <div class="card" style="width: 25rem;">
-          <img src="..." class="card-img-top" alt="...">
+          <img src="<%= p.img %>" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title"><%= p.title%></h5>
             <p class="card-text"><%= p.message %></p>
           </div>
-          
-  
+
   
           <ul class="list-group list-group-flush">
             
             <li class="list-group-item">
               <% p.comments.forEach(c => { %>
                 <p><%= c.comment %></p>
+                <hr>
               <% }) %>
               <form action="/comments/<%= p.id %>" method="POST" class="commmentform">
               <input type="text" name="Des" ><button type="submit">Add Comment</button>
@@ -63,6 +63,7 @@
 
  .card {
   width: 18rem;
+
    
 }
 .blocks > .card {
@@ -75,13 +76,16 @@
   
 }
 .blocks{
-  border:2px solid black;
-  display: flex;
-  padding: 20px;
-  margin: 50px;
-  margin-top: 0px;
-  height: 1000px;
-  
+  border: 2px solid black;
+    display: flex;
+    padding: 20px;
+    margin: 50px;
+    margin-top: 0px;
+    height: 1000px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
 }
 input{
   width: 300px;
